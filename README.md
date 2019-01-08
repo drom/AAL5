@@ -9,12 +9,12 @@ Algebraic Assembly Language for RISC-V
     if (rs1  <u rs2) goto (pc + bimm12hi)   // bltu    bimm12hi rs1 rs2 bimm12lo 14..12=6 6..2=0x18 1..0=3
     if (rs1 >=u rs2) goto (pc + bimm12hi)   // bgeu    bimm12hi rs1 rs2 bimm12lo 14..12=7 6..2=0x18 1..0=3
 
-    jalr    rd rs1 imm12              14..12=0 6..2=0x19 1..0=3
+    rd = pc + 4; goto (rs1 + imm12)         // jalr    rd rs1 imm12              14..12=0 6..2=0x19 1..0=3
 
-    jal     rd jimm20                          6..2=0x1b 1..0=3
+    rd = pc + 4; goto (pc + imm20)          // jal     rd jimm20                          6..2=0x1b 1..0=3
 
-    lui     rd imm20 6..2=0x0D 1..0=3
-    auipc   rd imm20 6..2=0x05 1..0=3
+    rd = imm20 << 12                        // lui     rd imm20 6..2=0x0D 1..0=3
+    pc = pc + (imm20 << 12)                 // auipc   rd imm20 6..2=0x05 1..0=3
 
     rd = rs1  +  imm12    // addi    rd, rs1, imm12           14..12=0 6..2=0x04 1..0=3
     rs = rs1 <<< shamt    // slli    rd, rs1, 31..26=0  shamt 14..12=1 6..2=0x04 1..0=3
