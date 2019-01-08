@@ -60,6 +60,6 @@ Algebraic Assembly Language for RISC-V
     rd = i64[rs1 + imm12]  // ld      rd rs1       imm12 14..12=3 6..2=0x00 1..0=3
     rd = u32[rs1 + imm12]  // lwu     rd rs1       imm12 14..12=6 6..2=0x00 1..0=3
 
-i64[rs1 + imm12lo] = rs2  // sd     imm12hi rs1 rs2 imm12lo 14..12=3 6..2=0x08 1..0=3
+    i64[rs1 + imm12lo] = rs2  // sd     imm12hi rs1 rs2 imm12lo 14..12=3 6..2=0x08 1..0=3
 
 ```
