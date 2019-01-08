@@ -2,12 +2,12 @@
 Algebraic Assembly Language for RISC-V
 
 ```js
-    if (rs1 ==  rs2) goto bimm12hi   // beq     bimm12hi rs1 rs2 bimm12lo 14..12=0 6..2=0x18 1..0=3
-    if (rs1 !=  rs2) goto bimm12hi   // bne     bimm12hi rs1 rs2 bimm12lo 14..12=1 6..2=0x18 1..0=3
-    if (rs1  <  rs2) goto bimm12hi   // blt     bimm12hi rs1 rs2 bimm12lo 14..12=4 6..2=0x18 1..0=3
-    if (rs1 >=  rs2) goto bimm12hi   // bge     bimm12hi rs1 rs2 bimm12lo 14..12=5 6..2=0x18 1..0=3
-    if (rs1  <u rs2) goto bimm12hi   // bltu    bimm12hi rs1 rs2 bimm12lo 14..12=6 6..2=0x18 1..0=3
-    if (rs1 >=u rs2) goto bimm12hi   // bgeu    bimm12hi rs1 rs2 bimm12lo 14..12=7 6..2=0x18 1..0=3
+    if (rs1 ==  rs2) goto pc + bimm12hi   // beq     bimm12hi rs1 rs2 bimm12lo 14..12=0 6..2=0x18 1..0=3
+    if (rs1 !=  rs2) goto pc + bimm12hi   // bne     bimm12hi rs1 rs2 bimm12lo 14..12=1 6..2=0x18 1..0=3
+    if (rs1  <  rs2) goto pc + bimm12hi   // blt     bimm12hi rs1 rs2 bimm12lo 14..12=4 6..2=0x18 1..0=3
+    if (rs1 >=  rs2) goto pc + bimm12hi   // bge     bimm12hi rs1 rs2 bimm12lo 14..12=5 6..2=0x18 1..0=3
+    if (rs1  <u rs2) goto pc + bimm12hi   // bltu    bimm12hi rs1 rs2 bimm12lo 14..12=6 6..2=0x18 1..0=3
+    if (rs1 >=u rs2) goto pc + bimm12hi   // bgeu    bimm12hi rs1 rs2 bimm12lo 14..12=7 6..2=0x18 1..0=3
 
     jalr    rd rs1 imm12              14..12=0 6..2=0x19 1..0=3
 
