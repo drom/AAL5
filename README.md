@@ -61,5 +61,39 @@ Algebraic Assembly Language for RISC-V
     rd = u32[rs1 + imm12]  // lwu     rd rs1       imm12 14..12=6 6..2=0x00 1..0=3
 
     i64[rs1 + imm12lo] = rs2  // sd     imm12hi rs1 rs2 imm12lo 14..12=3 6..2=0x08 1..0=3
+```
 
+## F
+
+```js
+rd = rs1 + rs2      // fadd.s    rd rs1 rs2      31..27=0x00 rm       26..25=0 6..2=0x14 1..0=3
+rd = rs1 - rs2      // fsub.s    rd rs1 rs2      31..27=0x01 rm       26..25=0 6..2=0x14 1..0=3
+rd = rs1 * rs2      // fmul.s    rd rs1 rs2      31..27=0x02 rm       26..25=0 6..2=0x14 1..0=3
+rd = rs1 / rs2      // fdiv.s    rd rs1 rs2      31..27=0x03 rm       26..25=0 6..2=0x14 1..0=3
+fsgnj.s   rd rs1 rs2      31..27=0x04 14..12=0 26..25=0 6..2=0x14 1..0=3
+fsgnjn.s  rd rs1 rs2      31..27=0x04 14..12=1 26..25=0 6..2=0x14 1..0=3
+fsgnjx.s  rd rs1 rs2      31..27=0x04 14..12=2 26..25=0 6..2=0x14 1..0=3
+rd = min(rs1, rs2)      // fmin.s    rd rs1 rs2      31..27=0x05 14..12=0 26..25=0 6..2=0x14 1..0=3
+rd = max(rs1, rs2)      // fmax.s    rd rs1 rs2      31..27=0x05 14..12=1 26..25=0 6..2=0x14 1..0=3
+rd = sqrt(rs1, rs2)     // fsqrt.s   rd rs1 24..20=0 31..27=0x0B rm       26..25=0 6..2=0x14 1..0=3
+
+rd = rs1 <= rs2         // fle.s     rd rs1 rs2      31..27=0x14 14..12=0 26..25=0 6..2=0x14 1..0=3
+rd = rs1 <  rs2         // flt.s     rd rs1 rs2      31..27=0x14 14..12=1 26..25=0 6..2=0x14 1..0=3
+rd = rs1 == rs2         // feq.s     rd rs1 rs2      31..27=0x14 14..12=2 26..25=0 6..2=0x14 1..0=3
+
+rd = rs1                // fcvt.w.s  rd rs1 24..20=0 31..27=0x18 rm       26..25=0 6..2=0x14 1..0=3
+rd = rs1                // fcvt.wu.s rd rs1 24..20=1 31..27=0x18 rm       26..25=0 6..2=0x14 1..0=3
+rd = rs1                // fcvt.l.s  rd rs1 24..20=2 31..27=0x18 rm       26..25=0 6..2=0x14 1..0=3
+rd = rs1                // fcvt.lu.s rd rs1 24..20=3 31..27=0x18 rm       26..25=0 6..2=0x14 1..0=3
+rd = rs1                // fmv.x.w   rd rs1 24..20=0 31..27=0x1C 14..12=0 26..25=0 6..2=0x14 1..0=3
+rd = rs1                // fclass.s  rd rs1 24..20=0 31..27=0x1C 14..12=1 26..25=0 6..2=0x14 1..0=3
+
+rd = f32[rs1 + imm12]   // flw       rd rs1 imm12 14..12=2 6..2=0x01 1..0=3
+
+f32[rs + imm12lo] = rs2 // fsw       imm12hi rs1 rs2 imm12lo 14..12=2 6..2=0x09 1..0=3
+
+rd = rs1 * rs2 + rs3    // fmadd.s   rd rs1 rs2 rs3 rm 26..25=0 6..2=0x10 1..0=3
+rd = rs1 * rs2 - rs3    // fmsub.s   rd rs1 rs2 rs3 rm 26..25=0 6..2=0x11 1..0=3
+rd = -rs1 * rs2 - rs3   // fnmsub.s  rd rs1 rs2 rs3 rm 26..25=0 6..2=0x12 1..0=3
+rd = -rs1 * rs2 + rs3   // fnmadd.s  rd rs1 rs2 rs3 rm 26..25=0 6..2=0x13 1..0=3
 ```
