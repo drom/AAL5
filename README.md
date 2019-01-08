@@ -1,7 +1,7 @@
 # AAL5
 Algebraic Assembly Language for RISC-V
 
-
+```js
     if (rs1 ==  rs2) goto bimm12hi   // beq     bimm12hi rs1 rs2 bimm12lo 14..12=0 6..2=0x18 1..0=3
     if (rs1 !=  rs2) goto bimm12hi   // bne     bimm12hi rs1 rs2 bimm12lo 14..12=1 6..2=0x18 1..0=3
     if (rs1  <  rs2) goto bimm12hi   // blt     bimm12hi rs1 rs2 bimm12lo 14..12=4 6..2=0x18 1..0=3
@@ -49,3 +49,4 @@ Algebraic Assembly Language for RISC-V
     i16[rs1 + imm12lo] = rs2  // sh     imm12hi rs1 rs2 imm12lo 14..12=1 6..2=0x08 1..0=3
     i32[rs1 + imm12lo] = rs2  // sw     imm12hi rs1 rs2 imm12lo 14..12=2 6..2=0x08 1..0=3
     i64[rs1 + imm12lo] = rs2  // sd     imm12hi rs1 rs2 imm12lo 14..12=3 6..2=0x08 1..0=3
+```
